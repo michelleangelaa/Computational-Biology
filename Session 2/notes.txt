@@ -1,0 +1,71 @@
+- %pip install biopython
+- import Bio
+- from Bio.SeqUtils import Seq
+- dna_seq = Seq('CGAT')
+- dna_seq.count('G')
+- Method 1
+def gc_contents1(seq):
+    count = 0
+    for x in seq:
+        if x in 'CG':
+            count += 1
+    result = count/len(seq)*100
+    return result
+
+gc_contents1(dna_seq)
+- Method 2
+def gc_contents2(seq):
+    result = (seq.count('G') + seq.count('C'))/len(seq) * 100
+    return result
+
+gc_contents2(dna_seq)
+
+- from Bio.SeqUtils import GC
+- from Bio.SeqUtils import gc_fraction
+
+- gc_function = GC(dna_seq)
+- gc_function = gc_fraction(dna_seq)*100
+
+at kurang lebih sama, tapi tidak ada metode 3 seperti GC
+
+- Melting point
+- mt.Tm_Wallace(dna_seq)
+- mt.Tm_GC
+- mt.Tm_NN
+
+- get_metrics function
+def get_metrics(seq1, seq2):
+    mp1 = mt.Tm_Wallace(seq1)
+    mp2 = mt.Tm_Wallace(seq2)
+    if(mp1 > mp2):
+        print("seq1")
+        return mp1
+    else:
+        print("seq2")
+        return mp2
+    
+- get_value
+
+def get_value(seq):
+    mp1 = mt.Tm_Wallace(seq)
+    result1 = (seq.count('G')+seq.count('C'))/len(seq)*100
+    result2 = (seq.count('A')+seq.count('T'))/len(seq)*100
+    print(f"Output: GC: {result1}, AT: {result2}, Melting Temp: {mp1}")
+
+- call get metrics
+print(get_metrics(dna_seq1, dna_seq2))
+get_value(dna_seq1)
+get_value(dna_seq2)
+
+- molecular weight
+dna_seq = Seq('CGAT')
+
+c_seq = Seq('C')
+g_seq = Seq('G')
+a_seq = Seq('A')
+t_seq = Seq('T')
+
+check = molecular_weight(c_seq) + molecular_weight(g_seq) + molecular_weight(a_seq) + molecular_weight(t_seq)
+check
+
+molecular_weight(dna_seq)
