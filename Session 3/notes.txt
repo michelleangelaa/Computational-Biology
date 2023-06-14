@@ -1,0 +1,44 @@
+LAB 3: Protein synthesis
+
+- %pip install biopython
+- from Bio.SeqUtils import Seq
+
+- dna_seq = Seq('ATGCGAATCGATTAG')
+- dna_length = len(dna_seq)
+- dna_seq.complement()
+- dna_seq.reverse_complement()
+- dna_seq.complement()[::-1]
+
+Transcription
+- mRNA = dna_seq.transcribe()
+
+Translation
+- protein = mRNA.translate()
+- mRNA.translate(stop_symbol='@')
+
+Joined steps
+- dna_seq.transcribe().translate()
+
+Convert amino acid's letter codes
+- from Bio.SeqUtils import seq1, seq3
+- letter_3 = seq3(protein)
+- seq1(letter_3)
+
+Amino Acids Codon Table
+- from Bio.Data import CodonTable
+- dir(CodonTable)
+- print(CodonTable.ambiguous_dna_by_name['Standard'])
+- print(CodonTable.ambiguous_rna_by_name['Standard'])
+
+
+3D structure of protein
+- %pip install py3Dmol
+- import py3Dmol
+
+- covid = py3Dmol.view(query = "6LU7")
+- covid.setStyle({'sphere': {'color':'spectrum'}})
+- covid.show()
+
+Parsing and Analyzing Proteins from PDB Files
+- from Bio.PDB import PDBParser
+- pdb = PDBParser()
