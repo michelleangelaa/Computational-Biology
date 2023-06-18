@@ -1,0 +1,13 @@
+LOCUS       genbank_sequence           8 bp    DNA              UNK 01-JAN-1980
+DEFINITION  this is genbank sequence.
+ACCESSION   01234
+VERSION     01234
+KEYWORDS    .
+SOURCE      .
+  ORGANISM  .
+            .
+FEATURES             Location/Qualifiers
+     world           6..8
+ORIGIN
+        1 cgatcgat
+//
